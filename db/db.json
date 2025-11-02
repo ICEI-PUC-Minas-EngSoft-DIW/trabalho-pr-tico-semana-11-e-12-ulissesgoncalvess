@@ -1,0 +1,40 @@
+{
+  "lugares": [
+    {
+      "id": 1,
+      "titulo": "Capitólio",
+      "descricao": "Destino turístico de Minas Gerais, famoso pelos cânions e cachoeiras.",
+      "conteudo": "Capitólio é conhecido por suas paisagens impressionantes, lagos, trilhas e águas verde-esmeralda.",
+      "categoria": "Natureza",
+      "local": "Minas Gerais - Brasil",
+      "imagem": "assets/img/principal.JPG"
+    },
+    {
+      "id": 2,
+      "titulo": "Cânions de Furnas",
+      "descricao": "Formações rochosas e águas verde-esmeralda, perfeitas para passeios de lancha.",
+      "conteudo": "Os cânions de Furnas são um dos principais atrativos de Capitólio, com paredões de até 20 metros e águas profundas ideais para mergulho.",
+      "categoria": "Aventura",
+      "local": "Capitólio - MG",
+      "imagem": "assets/img/canions.jpg"
+    },
+    {
+      "id": 3,
+      "titulo": "Cachoeira Lagoa Azul",
+      "descricao": "Cachoeira de águas azuladas e poço natural de fácil acesso.",
+      "conteudo": "A Cachoeira Lagoa Azul é uma das paradas obrigatórias nos passeios de lancha. Suas águas cristalinas são ideais para banho e fotos.",
+      "categoria": "Trilhas",
+      "local": "Capitólio - MG",
+      "imagem": "assets/img/cachoeira.jpg"
+    },
+    {
+      "id": 4,
+      "titulo": "Mirante dos Cânions",
+      "descricao": "Ponto panorâmico com vista espetacular do Lago de Furnas.",
+      "conteudo": "O Mirante dos Cânions é uma das melhores formas de apreciar Capitólio do alto. Um visual inesquecível da natureza mineira.",
+      "categoria": "Paisagem",
+      "local": "Capitólio - MG",
+      "imagem": "assets/img/lagoa.JPG"
+    }
+  ]
+}
