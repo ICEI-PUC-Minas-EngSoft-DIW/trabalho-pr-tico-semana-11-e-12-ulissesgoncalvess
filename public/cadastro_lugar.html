@@ -6,29 +6,130 @@
   <title>Cadastro de Lugar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .image-preview {
+      max-width: 300px;
+      max-height: 200px;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      display: none;
+    }
+    .image-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-light bg-light">
-    <div class="container"><a href="index.html" class="navbar-brand">← Voltar</a></div>
+    <div class="container">
+      <a href="index.html" class="navbar-brand">← Voltar</a>
+    </div>
   </nav>
 
   <main class="container my-4">
     <h2 id="formTitle">Cadastrar Lugar</h2>
     <div id="formAlert"></div>
+    
     <form id="lugarForm">
       <input type="hidden" id="lugarId" />
-      <div class="mb-3"><label class="form-label">Título</label><input type="text" id="titulo" class="form-control" required></div>
-      <div class="mb-3"><label class="form-label">Descrição</label><input type="text" id="descricao" class="form-control" required></div>
-      <div class="mb-3"><label class="form-label">Conteúdo</label><textarea id="conteudo" class="form-control" rows="4"></textarea></div>
-      <div class="mb-3"><label class="form-label">Categoria</label><input type="text" id="categoria" class="form-control" required></div>
-      <div class="mb-3"><label class="form-label">Local</label><input type="text" id="local" class="form-control" required></div>
-      <div class="mb-3"><label class="form-label">Imagem (path)</label><input type="text" id="imagem" class="form-control" value="assets/img/principal.JPG" required></div>
-      <button type="submit" class="btn btn-primary" id="submitBtn">Salvar</button>
-      <button type="button" class="btn btn-danger d-none" id="deleteBtn">Excluir</button>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Dados do lugar -->
+          <div class="mb-3">
+            <label class="form-label">Título *</label>
+            <input type="text" id="titulo" class="form-control" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Descrição Curta *</label>
+            <input type="text" id="descricao" class="form-control" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Conteúdo Detalhado</label>
+            <textarea id="conteudo" class="form-control" rows="4" placeholder="Descreva detalhes sobre o lugar..."></textarea>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Categoria *</label>
+            <select id="categoria" class="form-select" required>
+              <option value="">Selecione uma categoria</option>
+              <option value="Natureza">Natureza</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Trilhas">Trilhas</option>
+              <option value="Paisagem">Paisagem</option>
+              <option value="Gastronomia">Gastronomia</option>
+              <option value="Cultural">Cultural</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Localização *</label>
+            <input type="text" id="local" class="form-control" required placeholder="Ex: Capitólio - MG">
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <!-- Upload de imagem -->
+          <div class="mb-3">
+            <label class="form-label">Imagem do Local *</label>
+            
+            <!-- Preview da imagem -->
+            <div class="image-preview mb-3 p-3 text-center" id="imagePreview">
+              <img id="previewImage" src="" alt="Preview">
+              <div id="previewText" class="text-muted">Pré-visualização da imagem</div>
+            </div>
+            
+            <!-- Opção 1: Selecionar arquivo -->
+            <div class="mb-3">
+              <label class="form-label">Upload de Imagem</label>
+              <input type="file" id="imagemFile" class="form-control" accept="image/*">
+              <div class="form-text">Formatos: JPG, PNG, GIF. Tamanho máximo: 5MB</div>
+            </div>
+            
+            <!-- Opção 2: Usar URL existente -->
+            <div class="mb-3">
+              <label class="form-label">OU usar imagem existente</label>
+              <select id="imagemSelect" class="form-select">
+                <option value="">Selecionar imagem existente</option>
+                <option value="assets/img/principal.JPG">Imagem Principal</option>
+                <option value="assets/img/canions.jpg">Cânions</option>
+                <option value="assets/img/cachoeira.jpg">Cachoeira</option>
+                <option value="assets/img/lagoa.JPG">Lagoa</option>
+                <option value="custom">Usar URL personalizada</option>
+              </select>
+            </div>
+            
+            <!-- Campo para URL personalizada -->
+            <div class="mb-3" id="customUrlContainer" style="display: none;">
+              <label class="form-label">URL da Imagem</label>
+              <input type="text" id="imagemUrl" class="form-control" placeholder="https://... ou assets/img/...">
+            </div>
+            
+            <!-- Campo oculto para valor final -->
+            <input type="hidden" id="imagem" required>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary" id="submitBtn">Salvar Lugar</button>
+        <button type="button" class="btn btn-danger d-none" id="deleteBtn">Excluir Lugar</button>
+        <a href="index.html" class="btn btn-secondary">Cancelar</a>
+      </div>
     </form>
   </main>
 
   <script src="assets/js/app.js"></script>
-  <script>if(typeof initCadastro==='function') initCadastro();</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if(typeof initCadastro === 'function') initCadastro();
+      if(typeof initImageHandler === 'function') initImageHandler();
+    });
+  </script>
 </body>
 </html>
