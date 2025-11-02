@@ -1,0 +1,98 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+/* ================= HEADER ================= */
+header .navbar-brand {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* Links do menu */
+.nav-link {
+  color: #333;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+}
+
+/* ================= HERO ================= */
+.hero img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.hero-overlay h1 {
+  font-weight: bold;
+  font-size: 42px;
+}
+
+.hero-overlay p {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* ================= CARDS ================= */
+.card img {
+  object-fit: cover;
+  height: 250px;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.card-text {
+  font-size: 15px;
+  color: #555;
+}
+
+/* ================= FORMULÁRIO ================= */
+form label {
+  font-weight: 600;
+}
+
+form input {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Botão do formulário */
+form button {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
