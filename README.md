@@ -126,7 +126,7 @@ Sistema de comentários e avaliações
 
 Paginação de resultados
 
-Busca e filtros avançados
+Busca e filtros avançados .
 
 ## **Print dos testes da API com Postman**
 
